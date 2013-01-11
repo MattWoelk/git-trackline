@@ -1,0 +1,31 @@
+GIT TRACKLINE
+Track and show all changes to a specific line of a file in a git repository.
+
+USAGE:
+./git-trackline testfile1.txt 2
+
+Add it to your $PATH to run it like this:
+git trackline testfile1.txt 2
+
+Sample Output:
+--work-- testfile1.txt 2) this might say meooow
+2ad18d1e testfile1.txt 2 2) this might say meooow
+cf132c79 testfile1.txt 2 2) this says meooow
+37649a42 meow.txt 2 2) this says meooooowwwww
+
+Explanation:
+  # how it looks in your working directory:
+--work-- testfile1.txt 2) this might say meooow
+
+  # the most recent hash of the revision where the file existed
+2ad18d1e testfile1.txt 2 2) this might say meooow
+
+  # where it changed before, and what it looked like
+cf132c79 testfile1.txt 2 2) this says meooow
+
+  #               v-v---> previous, and current line number of the line.
+37649a42 meow.txt 2 2) this says meooooowwwww
+
+
+What might not work:
+Everything. This has no guarantees, but I hope it's useful. :)
