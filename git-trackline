@@ -1,0 +1,18 @@
+#!/bin/bash
+# USAGE: ./track_line_over_commits.sh readme.txt 3
+
+NOW=`awk "NR==$2" $1`
+echo --work-- $1 $2\) $NOW
+
+FIRS=`git blame -n -f -s -C -L $2,+1 $1 2>/dev/null`
+
+while [[ $? -eq 0 ]]; do
+  HASH=`echo $FIRS | awk '{print $1}'`
+  NEWLINE=`echo $FIRS | awk '{print $3}'`
+  echo $FIRS
+  FIRS=`git blame -n -f -s -C -L $NEWLINE,+1 $HASH^ -- $1 2>/dev/null`
+done
+
+exit 0;
+
+# it works by doing this: git blame -n -s -C -L 439,+1 bridgeChart.js
