@@ -1,5 +1,5 @@
 #!/bin/bash
-# USAGE: ./track_line_over_commits.sh readme.txt 3
+# USAGE: ./track_line_over_commits.sh testfile2.txt 3
 
 NOW=`awk "NR==$2" $1`
 echo --work-- $1 $2\) $NOW
