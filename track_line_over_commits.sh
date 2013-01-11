@@ -8,3 +8,5 @@ NEWLINE=`echo $FIRS | awk '{print $3}'`
 echo $FIRS
 echo $HASH
 echo $NEWLINE
+SECO=`git blame -n -f -s -C -L $NEWLINE,+1 $HASH -- $1`
+echo $SECO
